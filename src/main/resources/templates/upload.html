@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Spring Boot - IG Orders Loader</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"></link>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+</head>
+
+<body class="container" ng-app="igUploadFileApp">
+
+	<div  ng-controller="uploadFileController">
+	  <div class="page-header">
+        <h1>IG Orders Loader</h1>
+      </div>
+		<form class="form-horizontal">
+
+				<label class="control-label">Broker Url: <input type="text" name="input" ng-model="broker.url" ></input></label><br></br>
+				<label class="control-label">Username: <input type="text" name="input" ng-model="broker.username" ></input></label><br></br>
+				<label class="control-label">Password: <input type="text" name="input" ng-model="broker.password" ></input></label><br></br>
+				<label class="control-label">destination: <input type="text" name="input" ng-model="broker.destination" ></input></label><br></br>
+				<label class="control-label">Topic(else Queue): <input type="checkbox" name="input" ng-model="broker.topic" ></input></label><br></br>
+				
+ 				<label class="control-label" for="uploadfile">Upload File:</label>
+				<input class="form-control" type="file" file-model = "uploadedFile" placeholder="Upload File"></input><br></br>
+
+			    <button type="submit" class="btn btn-default" ng-click = "doUploadFile()">Upload</button>
+		</form>
+		<hr/>
+		<div class="col-sm-offset-2">
+			<p ng-bind="uploadResult"></p>
+		</div>
+	</div>
+
+	<script src="/js/igApp.js"></script>
+	<script src="/js/uploadFileCtrl.js"></script>
+	
+	<!-- jQuery library -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+</body>
+</html>
